@@ -1,37 +1,35 @@
-import QtQuick 2.7
-import QtQuick.Controls 2.0
-import QtQuick.Layouts 1.0
+import QtQuick 2.3
+import QtQuick.Controls 1.2
+import QtQuick.Controls.Styles 1.2
+import QtQuick.Layouts 1.1
+import QtQuick.Window 2.2
+import QtQuick.LocalStorage 2.0
 
 ApplicationWindow {
     visible: true
-    width: 640
-    height: 480
-    title: qsTr("Hello World")
+    width: Screen.width
+    height: Screen.height
 
-    SwipeView {
-        id: swipeView
+    TabView {
         anchors.fill: parent
-        currentIndex: tabBar.currentIndex
-
-        Page1 {
+        Tab {
+            title: "工程"
+            source: "project/projectTab.qml"
         }
-
-        Page {
-            Label {
-                text: qsTr("Second page")
-                anchors.centerIn: parent
-            }
+        Tab {
+            title: "编辑"
+            source: "startTab.qml"
         }
-    }
-
-    footer: TabBar {
-        id: tabBar
-        currentIndex: swipeView.currentIndex
-        TabButton {
-            text: qsTr("First")
+        Tab {
+            title: "调试"
+            source: "debugTab.qml"
         }
-        TabButton {
-            text: qsTr("Second")
+        Tab {
+            title: "数据包"
+        }
+        Tab {
+            title: "服务器"
+            source: "FileDialogs.qml"
         }
     }
 }

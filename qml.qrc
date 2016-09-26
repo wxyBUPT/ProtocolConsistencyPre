@@ -1,5 +1,17 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
+        <file>project/projectTab.qml</file>
+        <file>project/ShowImage.qml</file>
+        <file>main.cpp</file>
+        <file>qml.qrc</file>
+        <file>project/new.qml</file>
+        <file>project/CreateNewPro.qml</file>
+        <file>project/OpenPro.qml</file>
+        <file>project/SavePro.qml</file>
+        <file>project/ImportPro.qml</file>
+        <file>project/ExportPro.qml</file>
+        <file>project/UploadPro.qml</file>
+        <file>project/UpdatePro.qml</file>
     </qresource>
 </RCC>
