@@ -5,10 +5,14 @@ import QtQuick.Layouts 1.1
 import QtQuick.Window 2.2
 import QtQuick.LocalStorage 2.0
 
+//引入storage
+import "global/storage.js" as DB
+
 ApplicationWindow {
     visible: true
     width: Screen.width
     height: Screen.height
+
 
     TabView {
         anchors.fill: parent
@@ -18,18 +22,23 @@ ApplicationWindow {
         }
         Tab {
             title: "编辑"
-            source: "startTab.qml"
+            source: "edit/editTab.qml"
         }
         Tab {
             title: "调试"
-            source: "debugTab.qml"
+            source: "debug/debugTab.qml"
         }
         Tab {
             title: "数据包"
         }
         Tab {
             title: "服务器"
-            source: "FileDialogs.qml"
+            source: "server/serverTab.qml"
         }
     }
+    Component.onCompleted: {
+        DB.initialize();
+        console.debug("db initialize success")
+    }
+
 }

@@ -6,12 +6,22 @@
         <file>main.cpp</file>
         <file>qml.qrc</file>
         <file>project/new.qml</file>
-        <file>project/CreateNewPro.qml</file>
-        <file>project/OpenPro.qml</file>
+        <file>project/SubPro.qml</file>
         <file>project/SavePro.qml</file>
         <file>project/ImportPro.qml</file>
         <file>project/ExportPro.qml</file>
         <file>project/UploadPro.qml</file>
         <file>project/UpdatePro.qml</file>
+        <file>project/Help.qml</file>
+        <file>project/Version.qml</file>
+        <file>project/RecentPro.qml</file>
+        <file>project/CreateNewPro.qml</file>
+        <file>project/ProLib.qml</file>
+        <file>edit/editTab.qml</file>
+        <file>debug/debugTab.qml</file>
+        <file>server/serverTab.qml</file>
+        <file>style/allButtonStype.qml</file>
+        <file>global/storage.js</file>
+        <file>project/component/WaitingChosenProject.qml</file>
     </qresource>
 </RCC>

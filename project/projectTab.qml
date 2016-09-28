@@ -5,6 +5,7 @@ import QtQuick.Layouts 1.1
 
 Rectangle {
     color: "white"
+
     Component{
         id: buttonstyle;
         ButtonStyle {
@@ -21,7 +22,6 @@ Rectangle {
             }
         }
     }
-
     ColumnLayout{
 
         id:wxyProjectPage;
@@ -32,7 +32,7 @@ Rectangle {
         anchors.topMargin: 30;
         spacing: 10;
         Button{
-            text:"新建"
+            text:"工程"
             style: buttonstyle;
             onClicked: {
                 changePage(0);
@@ -40,45 +40,53 @@ Rectangle {
 
         }
         Button{
-            text:"打开"
+            text:"保存"
             style: buttonstyle;
             onClicked:{
                 changePage(1);
             }
         }
         Button{
-            text:"保存"
+            text:"导入"
             style: buttonstyle;
             onClicked: {
                 changePage(2);
             }
         }
         Button{
-            text:"导入"
+            text:"导出"
             style: buttonstyle;
             onClicked: {
                 changePage(3);
             }
         }
         Button{
-            text:"导出"
+            text:"上传"
             style: buttonstyle;
             onClicked: {
                 changePage(4);
             }
         }
         Button{
-            text:"上传"
+            text:"下载"
             style: buttonstyle;
             onClicked: {
                 changePage(5);
             }
         }
         Button{
-            text:"更新"
+            text:"帮助"
             style: buttonstyle;
             onClicked: {
                 changePage(6);
+            }
+        }
+
+        Button{
+            text:"版本"
+            style: buttonstyle;
+            onClicked:{
+                changePage(7);
             }
         }
     }
@@ -98,17 +106,8 @@ Rectangle {
         id : wxyContent;
         Item{
             anchors.fill : parent;
-            id : idCreateNewPro;
-            CreateNewPro{
-
-            }
-        }
-
-        Item{
-            anchors.fill: parent;
-            id: idOpenPro;
-            OpenPro{
-
+            id:idSubProParent
+            SubPro{
             }
         }
 
@@ -116,7 +115,6 @@ Rectangle {
             anchors.fill: parent;
             id: idSavePro;
             SavePro{
-
             }
         }
 
@@ -124,7 +122,6 @@ Rectangle {
             anchors.fill: parent;
             id: idImportPro;
             ImportPro{
-
             }
         }
 
@@ -132,7 +129,6 @@ Rectangle {
             anchors.fill: parent;
             id: idExportPro;
             ExportPro{
-
             }
         }
 
@@ -140,7 +136,6 @@ Rectangle {
             anchors.fill: parent;
             id: idUploadPro;
             UploadPro{
-
             }
         }
 
@@ -148,10 +143,22 @@ Rectangle {
             anchors.fill: parent;
             id: idUpdatePro;
             UpdatePro{
-
             }
         }
 
+        Item{
+            anchors.fill: parent;
+            id: idHelp;
+            Help{
+            }
+        }
+
+        Item{
+            anchors.fill: parent;
+            id: idVersion;
+            Version{
+            }
+        }
     }
 
 }
