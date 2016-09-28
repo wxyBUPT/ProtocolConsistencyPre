@@ -23,5 +23,7 @@
         <file>style/allButtonStype.qml</file>
         <file>global/storage.js</file>
         <file>project/component/WaitingChosenProject.qml</file>
+        <file>project/component/ProForRecent.qml</file>
+        <file>project/component/ColorPicker.qml</file>
     </qresource>
 </RCC>
