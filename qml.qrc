@@ -25,5 +25,6 @@
         <file>project/component/WaitingChosenProject.qml</file>
         <file>project/component/ProForRecent.qml</file>
         <file>project/component/ColorPicker.qml</file>
+        <file>statics/proPic.jpg</file>
     </qresource>
 </RCC>

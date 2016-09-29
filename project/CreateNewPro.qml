@@ -5,18 +5,18 @@ import QtQuick.LocalStorage 2.0
 import "./../global/storage.js" as DB
 
 Item {
-    id:"idCreateNew"
+    id:idCreateNew
     anchors.centerIn: parent.Center
     Rectangle{
         Text{
-            id:"idNewProText"
+            id:idNewProText
             text:"工程名称"
         }
 
         TextField{
             anchors.left: idNewProText.right
 
-            id:"idNewProjName"
+            id:idNewProjName
         }
 
         Button{

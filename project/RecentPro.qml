@@ -6,8 +6,11 @@ import "./../global/storage.js" as DB
 
 Item {
 
+    id: idRecentPro
+
     property ListModel projects: ListModel{
     }
+
 
     Rectangle {
         width: 180; height: 1200
@@ -23,14 +26,19 @@ Item {
                     anchors.fill: parent;
                     onClicked: {
                         wrapper.ListView.view.currentIndex = index;
-                        console.log(index);
-                        console.log(name);
+                        console.debug(index);
+                        console.debug(name);
                     }
                 }
 
-                Column {
+                Row{
+                    Image{
+                        width:20;height:20
+                        source: "./../statics/proPic.jpg"
+                    }
+
                     Text { text: '<b>Name:</b> ' + name }
-                    Text { text: '<b>Number:</b> ' + path}
+                    Text { text: '<b>Time :</b> ' + time}
                 }
             }
         }
@@ -108,8 +116,9 @@ Item {
         });
 
         var output = "";
-        var j = 0;
+        var j = 1;
         for(var i in sortedPro){
+            if(j==10)return;
             j += 1;
             projects.append(sortedPro[i])
             output += ",name " ;
@@ -117,7 +126,12 @@ Item {
         }
         console.log("foo");
         console.log(output);
-        console.log("一共创建了 " + j +  " 个工程")
+        console.log("一共创建了 " + j +  " 个工程");
+    }
+
+    function updateCurrentPro(){
+        var items = DB.getAllProMeta();
+        console.log("我被调用了")
     }
 }
 
