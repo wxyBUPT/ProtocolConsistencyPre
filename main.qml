@@ -35,7 +35,9 @@ ApplicationWindow {
             title: "服务器"
             source: "server/serverTab.qml"
         }
+
     }
+
     Component.onCompleted: {
         DB.initialize();
         console.debug("db initialize success")

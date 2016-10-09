@@ -5,6 +5,7 @@ import QtQuick.Controls.Styles 1.2
 
 Item {
 
+    //button 的样式
     Component{
         id: subButtonStyle;
         ButtonStyle {
@@ -21,6 +22,8 @@ Item {
             }
         }
     }
+
+
     ColumnLayout{
 
         id: idSubPro
@@ -54,6 +57,18 @@ Item {
             }
         }
     }
+    Rectangle{
+        color:"green";
+        anchors.left:idSubPro.left;
+        anchors.right: idSubPro.right;
+        anchors.top: idSubPro.top;
+        anchors.bottom: idSubPro.bottom;
+        anchors.leftMargin: -5
+        anchors.rightMargin: -5
+        anchors.bottomMargin: -5
+        anchors.topMargin: -5;
+        opacity:0.1;
+    }
 
     function changeSubProPage(num){
         for(var i = 0;i<idSubProContent.children.length;i++){
@@ -63,28 +78,32 @@ Item {
     }
 
     Item{
+
+        id : idSubProContent;
+
         anchors.left: idSubPro.right;
         anchors.top: parent.top;
         anchors.right: parent.right;
         anchors.bottom: parent.bottom;
-        id : idSubProContent;
-        Item{
-            id: idRecent;
-            RecentPro{
-            }
+
+
+        RecentPro{
+            anchors.fill: parent
+            anchors.centerIn: parent
         }
 
-        Item{
-            anchors.fill: parent;
-            CreateNewPro{
-            }
+        CreateNewPro{
+            anchors.fill: parent
+            anchors.centerIn: parent;
         }
 
-        Item{
-            anchors.fill: parent;
-            id: idProLib;
-            ProLib{
-            }
+        ProLib{
+            anchors.fill: parent
+            anchors.centerIn: parent
         }
+    }
+
+    Component.onCompleted: {
+        changeSubProPage(0);
     }
 }

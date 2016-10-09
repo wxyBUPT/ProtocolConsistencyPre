@@ -80,10 +80,12 @@ function getAllProMeta(){
         if(rs.rows.length > 0){
             var tmpRow = rs.rows;
             for(var i = 0;i<tmpRow.length;i++){
+                var date = new Date(tmpRow.item(i).time);
+                var dateStr = date.toISOString().replace(/-/g,"");
                 var tmp = {
                     name:tmpRow.item(i).name,
                     path:tmpRow.item(i).path,
-                    time:tmpRow.item(i).time
+                    time:dateStr
                 };
                 res.push(tmp);
             }

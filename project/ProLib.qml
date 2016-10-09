@@ -5,7 +5,7 @@ import QtQuick.Controls 1.4
 import "./../global/storage.js" as DB
 
 Item {
-    id: proLib;
+    id: root;
     property ListModel projects: ListModel{
 
     }
@@ -13,48 +13,63 @@ Item {
     property ListModel tmp : ListModel{
 
     }
+    Component {
+        id: proLibDelegate
 
-    ScrollView{
-        Rectangle {
-            width: 180; height: 1200
 
-            Component {
-                id: proLibDelegate
-
-                Item {
-                    id: wrapper;
-                    width:parent.width;
-                    height: 40
-                    MouseArea{
-                        anchors.fill: parent;
-                        onClicked: {
-                            wrapper.ListView.view.currentIndex = index;
-                            console.debug(index);
-                            console.debug(name);
-                        }
-                    }
-
-                    Row{
-                        Image{
-                            width:20;height:20
-                            source: "./../statics/proPic.jpg"
-                        }
-
-                        Text { text: '<b>Name:</b> ' + name }
-                        Text { text: '<b>Time :</b> ' + time}
-                    }
+        Item {
+            id: wrapper;
+            width:parent.width;
+            height: 40
+            MouseArea{
+                anchors.fill: parent;
+                onClicked: {
+                    wrapper.ListView.view.currentIndex = index;
+                    console.debug(index);
+                    console.debug(name);
                 }
             }
 
-            GridView{
-                anchors.fill: parent;
-                model: projects
-                delegate: proLibDelegate
-                highlight: Rectangle { color: "lightsteelblue"; radius: 10}
-                focus: true
+            Row{
+                Image{
+                    id:idImage;
+                    width:30;height:30
+                    source: "./../statics/proPic.jpg"
+                }
+
+                Column{
+                    anchors.leftMargin: 10
+                    Text {
+                        color:"lightGreen";
+                        text: '<b>Name:</b> ' + name
+                    }
+
+                    Text {
+                        color:"red";
+                        text: '<b>Time :</b> ' + time
+                    }
+                }
             }
         }
     }
+
+    /**
+    ScrollView{
+        horizontalScrollBarPolicy: Qt.ScrollBarAlwaysOn;
+        **/
+
+        Grid{
+            width: 600; height: 1200
+
+            Repeater{
+                anchors.fill: parent;
+                model: projects
+                delegate: proLibDelegate
+                focus: true
+            }
+        }
+
+    //}
 
     Component.onCompleted: {
         var items = DB.getAllProMeta();

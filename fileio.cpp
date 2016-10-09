@@ -1,10 +1,28 @@
 #include "fileio.h"
 #include <QFile>
+#include "QDebug"
 
 FileIO::FileIO(QObject *parent) :
     QObject(parent)
 {
 
+}
+QString FileIO::open(const QString& filename)
+{
+    QFile file("F:/文本文件/"+filename+".txt");
+
+    if (file.exists()) {
+        qDebug() <<"file exists" << endl;
+        return "exist";
+    }
+
+    if(!file.open(QFile::ReadWrite|QFile::Text))
+    {
+        qDebug() << "file open error" << endl;
+        return "fail";
+    }
+    file.close();
+    return "success";
 }
 
 QString FileIO::read()

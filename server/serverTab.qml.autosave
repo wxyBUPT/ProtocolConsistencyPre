@@ -25,6 +25,11 @@ Item {
                     font.pointSize:30
                 }
             }
+            
+            ColumnLayout{
+                //假设所有的服务器节点都是从datacenter 获得的
+                
+            }
 
 
         }

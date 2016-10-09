@@ -26,5 +26,8 @@
         <file>project/component/ProForRecent.qml</file>
         <file>project/component/ColorPicker.qml</file>
         <file>statics/proPic.jpg</file>
+        <file>statics/arrow.png</file>
+        <file>statics/larrow.png</file>
+        <file>project/LineEdit.qml</file>
     </qresource>
 </RCC>

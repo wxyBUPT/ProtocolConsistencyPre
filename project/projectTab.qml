@@ -4,8 +4,10 @@ import QtQuick.Controls.Styles 1.2
 import QtQuick.Layouts 1.1
 
 Rectangle {
+    id:root;
     color: "white"
 
+    //工程界面的button 样式
     Component{
         id: buttonstyle;
         ButtonStyle {
@@ -22,13 +24,16 @@ Rectangle {
             }
         }
     }
+
     ColumnLayout{
 
         id:wxyProjectPage;
 
+        //
         anchors.left: parent.left;
-        anchors.leftMargin: 15;
         anchors.top: parent.top;
+
+        anchors.leftMargin: 15;
         anchors.topMargin: 30;
         spacing: 10;
         Button{
@@ -98,38 +103,106 @@ Rectangle {
         wxyContent.children[num].visible= true;
     }
 
+    Component.onCompleted: {
+        changePage(0)
+    }
+
+
     Item{
         anchors.left: wxyProjectPage.right;
         anchors.top: parent.top;
         anchors.right: parent.right;
         anchors.bottom: parent.bottom;
+        anchors.leftMargin: 5
+        anchors.rightMargin: 5
         id : wxyContent;
+
         Item{
-            anchors.fill : parent;
-            id:idSubProParent
             SubPro{
             }
         }
 
-        Item{
-            anchors.fill: parent;
-            id: idSavePro;
-            SavePro{
-            }
+        Text{
+            anchors.centerIn: parent;
+            text:"已保存当前工程信息"
+            font.pointSize: 70
+
         }
 
         Item{
             anchors.fill: parent;
+            anchors.centerIn: parent;
             id: idImportPro;
-            ImportPro{
+            RowLayout{
+                anchors.centerIn: parent;
+                //水平向上移动 500像素
+                anchors.verticalCenterOffset: -500
+                //水平向左移动 50 像素
+                anchors.horizontalCenterOffset: -50
+
+                Text{
+                    text:"导入文件： "
+                }
+
+                LineEdit{
+                    id: input
+                    x:8;y:8
+                    width:300;height:20
+                    focus:true
+                    text:"请输入导入文件的路径"
+                }
+
+                Button{
+                    text:"..."
+                }
+                Button{
+                    text:"导入"
+                }
             }
         }
 
         Item{
             anchors.fill: parent;
             id: idExportPro;
-            ExportPro{
+            anchors.centerIn: parent;
+            ColumnLayout{
+                anchors.centerIn: parent;
+                //水平向上移动500像素
+                anchors.verticalCenterOffset: -500
+                //水平向左移动50像素
+                anchors.horizontalCenterOffset: -50
+                RowLayout{
+                    Text{
+                        text:"导出路径： "
+                    }
+
+                    LineEdit{
+                        x:8;y:8
+                        width:300;height:20
+                        focus:true
+                        text:"导出路径"
+                    }
+                    Button{
+                        text:"..."
+                    }
+                }
+
+                RowLayout{
+                    Text{
+                        text:"文件名称： "
+                    }
+                    LineEdit{
+                        x:8;y:8
+                        width:300;height:20
+                        focus:true
+                        text:"文件名称"
+                    }
+                    Button{
+                        text:"导出"
+                    }
+                }
             }
+
         }
 
         Item{

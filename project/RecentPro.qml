@@ -33,12 +33,23 @@ Item {
 
                 Row{
                     Image{
-                        width:20;height:20
+                        width:30;height:30;
                         source: "./../statics/proPic.jpg"
                     }
 
-                    Text { text: '<b>Name:</b> ' + name }
-                    Text { text: '<b>Time :</b> ' + time}
+                    Text {
+                        width:80;
+                        height:30;
+                        text: '<b>Name:</b> ' + name
+                        //设置省略
+                        elide: Text.ElideMiddle;
+                    }
+                    Text {
+                        width:80;
+                        height:30;
+                        text: '<b>Time :</b> ' + time
+                        elide: Text.ElideMiddle;
+                    }
                 }
             }
         }
