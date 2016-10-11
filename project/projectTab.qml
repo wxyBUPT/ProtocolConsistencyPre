@@ -136,7 +136,7 @@ Rectangle {
             RowLayout{
                 anchors.centerIn: parent;
                 //水平向上移动 500像素
-                anchors.verticalCenterOffset: -500
+                anchors.verticalCenterOffset:- parent.height * 0.5 * 0.5
                 //水平向左移动 50 像素
                 anchors.horizontalCenterOffset: -50
 
@@ -168,7 +168,7 @@ Rectangle {
             ColumnLayout{
                 anchors.centerIn: parent;
                 //水平向上移动500像素
-                anchors.verticalCenterOffset: -500
+                anchors.verticalCenterOffset: - parent.height * 0.5 * 0.5
                 //水平向左移动50像素
                 anchors.horizontalCenterOffset: -50
                 RowLayout{
