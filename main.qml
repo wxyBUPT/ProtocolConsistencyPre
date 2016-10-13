@@ -18,7 +18,10 @@ ApplicationWindow {
         anchors.fill: parent
         Tab {
             title: "工程"
-            source: "project/projectTab.qml"
+            Loader{
+                id:myLoader
+                source: "project/projectTab.qml"
+            }
         }
         Tab {
             title: "编辑"
@@ -35,7 +38,6 @@ ApplicationWindow {
             title: "服务器"
             source: "server/serverTab.qml"
         }
-
     }
 
     Component.onCompleted: {

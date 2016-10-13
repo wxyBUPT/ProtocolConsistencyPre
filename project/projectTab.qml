@@ -25,108 +25,112 @@ Rectangle {
         }
     }
 
-    ColumnLayout{
+    Rectangle{
+        id:toptab
+        width:parent.width / 15
+        height:wxyProjectPage.height
+        anchors.left: parent.left
 
-        id:wxyProjectPage;
+        ColumnLayout{
 
-        //
-        anchors.left: parent.left;
-        anchors.top: parent.top;
+            id:wxyProjectPage;
 
-        anchors.leftMargin: 15;
-        anchors.topMargin: 30;
-        spacing: 10;
-        Button{
-            text:"工程"
-            style: buttonstyle;
-            onClicked: {
-                changePage(0);
+            anchors.left: parent.left;
+            anchors.top: parent.top;
+
+            anchors.leftMargin: 15;
+            anchors.topMargin: 30;
+            spacing: 10;
+            Button{
+                text:"工程"
+                style: buttonstyle;
+                onClicked: {
+                    changePage(0);
+                }
+
+            }
+            Button{
+                text:"保存"
+                style: buttonstyle;
+                onClicked:{
+                    changePage(1);
+                }
+            }
+            Button{
+                text:"导入"
+                style: buttonstyle;
+                onClicked: {
+                    changePage(2);
+                }
+            }
+            Button{
+                text:"导出"
+                style: buttonstyle;
+                onClicked: {
+                    changePage(3);
+                }
+            }
+            Button{
+                text:"上传"
+                style: buttonstyle;
+                onClicked: {
+                    changePage(4);
+                }
+            }
+            Button{
+                text:"下载"
+                style: buttonstyle;
+                onClicked: {
+                    changePage(5);
+                }
+            }
+            Button{
+                text:"帮助"
+                style: buttonstyle;
+                onClicked: {
+                    changePage(6);
+                }
             }
 
-        }
-        Button{
-            text:"保存"
-            style: buttonstyle;
-            onClicked:{
-                changePage(1);
-            }
-        }
-        Button{
-            text:"导入"
-            style: buttonstyle;
-            onClicked: {
-                changePage(2);
-            }
-        }
-        Button{
-            text:"导出"
-            style: buttonstyle;
-            onClicked: {
-                changePage(3);
-            }
-        }
-        Button{
-            text:"上传"
-            style: buttonstyle;
-            onClicked: {
-                changePage(4);
-            }
-        }
-        Button{
-            text:"下载"
-            style: buttonstyle;
-            onClicked: {
-                changePage(5);
-            }
-        }
-        Button{
-            text:"帮助"
-            style: buttonstyle;
-            onClicked: {
-                changePage(6);
-            }
-        }
-
-        Button{
-            text:"版本"
-            style: buttonstyle;
-            onClicked:{
-                changePage(7);
+            Button{
+                text:"版本"
+                style: buttonstyle;
+                onClicked:{
+                    changePage(7);
+                }
             }
         }
     }
 
+
+
     function changePage(num){
         for(var i = 0;i<wxyProjectPage.children.length;i++){
-            wxyContent.children[i].visible= false;
+            content.children[i].visible= false;
         }
-        wxyContent.children[num].visible= true;
+        content.children[num].visible= true;
     }
 
     Component.onCompleted: {
         changePage(0)
     }
 
-
-    Item{
-        anchors.left: wxyProjectPage.right;
-        anchors.top: parent.top;
-        anchors.right: parent.right;
-        anchors.bottom: parent.bottom;
+    Rectangle{
+        id:content
+        anchors.left: toptab.right
+        anchors.right:parent.right
+        anchors.top: parent.top
+        anchors.bottom: parent.bottom
         anchors.leftMargin: 5
         anchors.rightMargin: 5
-        id : wxyContent;
 
-        Item{
-            SubPro{
-            }
+        SubPro{
+            anchors.fill: parent
         }
 
         Text{
             anchors.centerIn: parent;
-            text:"已保存当前工程信息"
-            font.pointSize: 70
-
+            text:"已经保存当前工程信息"
         }
 
         Item{
@@ -233,5 +237,4 @@ Rectangle {
             }
         }
     }
-
 }

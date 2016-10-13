@@ -4,7 +4,7 @@ import QtQuick.Controls 1.4
 //导入storage
 import "./../global/storage.js" as DB
 
-Item {
+Rectangle{
 
     id: idRecentPro
 
@@ -13,7 +13,14 @@ Item {
 
 
     Rectangle {
-        width: 180; height: 1200
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.bottom: parent.bottom
+        anchors.top: parent.top
+        anchors.leftMargin: 70
+        anchors.rightMargin: 10
+        anchors.topMargin: 40
+        anchors.bottomMargin: 10
 
         Component {
             id: contactDelegate
@@ -26,27 +33,28 @@ Item {
                     anchors.fill: parent;
                     onClicked: {
                         wrapper.ListView.view.currentIndex = index;
-                        console.debug(index);
-                        console.debug(name);
                     }
                 }
 
                 Row{
+                    id:rowitem
                     Image{
                         width:30;height:30;
                         source: "./../statics/proPic.jpg"
                     }
 
                     Text {
-                        width:80;
-                        height:30;
+                        height:40;
+                        width:200
+                        font.pixelSize: 20
                         text: '<b>Name:</b> ' + name
                         //设置省略
                         elide: Text.ElideMiddle;
                     }
                     Text {
-                        width:80;
-                        height:30;
+                        height:40;
+                        width:200
+                        font.pixelSize: 20
                         text: '<b>Time :</b> ' + time
                         elide: Text.ElideMiddle;
                     }
@@ -55,10 +63,12 @@ Item {
         }
 
         ListView {
+            id:listpro
             anchors.fill: parent
             model: projects
             delegate: contactDelegate
-            highlight: Rectangle { color: "lightsteelblue"; radius: 10}
+            spacing:10
+            highlight: Rectangle { color: "lightsteelblue"; radius: 10;width:contactDelegate.width}
             focus: true
         }
     }

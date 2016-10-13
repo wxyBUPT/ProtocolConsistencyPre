@@ -17,7 +17,7 @@ function initialize() {
 }
 
 function getBasePath(){
-    return "./"
+    return "./";
 }
 
 //创建新的工程
